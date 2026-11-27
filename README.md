@@ -1,4 +1,6 @@
-# Continue reading — Wikipedia-style product decision journal
+# Thread
+
+Thread is a proposed internal codename for this independent decision journal, not an approved Wikimedia project. It documents a Reading continuity proposal for the Wikipedia apps. Continue reading is the proposed user-facing feature name.
 
 A responsive static site styled after Wikipedia's Vector 2022 reading layout and informed by Wikimedia Codex typography guidance. It is an independent interview work sample, not an official Wikimedia Foundation page and does not use Wikimedia logos or imply endorsement.
 
