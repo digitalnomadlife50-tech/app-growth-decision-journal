@@ -24,10 +24,10 @@
     <a href="#evidence">Starting evidence</a>
     <a href="#worked-through">How I worked through it</a>
     <a href="#question">Reading continuity: the product question</a>
-    <a href="#reader-journey">Reader journey and segment</a>
+    <a href="#reader-journey">Reader journey and target segment</a>
     <a href="#alternatives">Alternatives considered</a>
     <a href="#ecosystem">Who this affects</a>
-    <a href="#tensions">Trade-offs</a>
+    <a href="#tensions">The trade-offs</a>
     <a href="#decision-trail">Decision trail</a>
     <a href="#decision">The proposed first release</a>
     <a href="#measurement">How we would measure it</a>
@@ -83,7 +83,7 @@
         <h4 id="reader-journey">Reader journey and target segment</h4>
         <p>The journey below isolates the moment this proposal addresses. Discovery and longer reading stay outside the first release.</p>
         <table class="wikitable" tabindex="0">
-          <thead><tr><th>Journey stage</th><th>Reader's likely job</th><th>Potential friction</th></tr></thead>
+          <thead><tr><th>Journey stage</th><th>Reader’s likely job</th><th>Potential friction</th></tr></thead>
           <tbody>
             <tr><td>Discover</td><td>Find an answer or follow a question</td><td>Outside this release</td></tr>
             <tr><td>Open and read</td><td>Understand an article at their own pace</td><td>Article experience must remain useful and stable</td></tr>
@@ -133,7 +133,7 @@
             <tr><td>Readers</td><td>Useful continuity, control, and a clear way to move on</td><td>Resume, dismiss, and clear history. Do not assume an interruption means they want to come back</td></tr>
             <tr><td>Volunteer editors and the wider community</td><td>Trust that reading behavior is not quietly turned into a personal profile</td><td>Explain the data limits plainly and check where the information actually goes</td></tr>
             <tr><td>Support</td><td>Fewer reports of lost reading position and confusing behavior</td><td>Test backgrounding, navigation, restoring, and what happens when restoring fails</td></tr>
-            <tr><td>Engineering and Design</td><td>A buildable, accessible scope that fits each platform</td><td>Save positions on the device, agree one description of the behavior for both platforms, and plan for things going wrong</td></tr>
+            <tr><td>Engineering and Design</td><td>A buildable, accessible scope that fits each platform</td><td>Save positions on the device, agree on one description of the behavior for both platforms, and plan for things going wrong</td></tr>
             <tr><td>Marketing</td><td>A timely campaign with a compelling story</td><td>Offer a discovery-led campaign using existing sharing, without adding streaks to the first release</td></tr>
             <tr><td>App Growth</td><td>More new readers returning within seven days</td><td>Compare readers who see the feature with readers who do not, and keep platform results separate</td></tr>
           </tbody>
@@ -261,7 +261,7 @@
           <li>Build saving and restoring of reading positions.</li>
           <li>Build the Continue reading section on Home.</li>
           <li>Include resuming, dismissing, and clearing saved articles.</li>
-          <li>Make sure the feature works consistently on iPhone and Android.</li>
+          <li>Make sure the feature works consistently on iOS and Android.</li>
           <li>Add the records needed to measure results, without collecting unnecessary reading-history details.</li>
         </ul>
         <p><b>Week 5: Test the experience.</b></p>
@@ -314,7 +314,7 @@
       </div>
       <aside class="toc" aria-label="Contents">
         <b>Contents</b>
-        <a href="#brief">The assignment</a><a href="#evidence">Starting evidence</a><a href="#worked-through">How I worked through it</a><a href="#question">Reading continuity: the product question</a><a href="#reader-journey">Reader journey and segment</a><a href="#alternatives">Alternatives considered</a><a href="#ecosystem">Who this affects</a><a href="#tensions">The trade-offs</a><a href="#decision-trail">Decision trail</a><a href="#decision">The proposed first release</a><a href="#measurement">How we would measure it</a><a href="#confirm">What we need to confirm before building</a><a href="#plan">The six-week plan</a><a href="#results">When results arrive</a><a href="#method">AI use and authorship</a>
+        <a href="#brief">The assignment</a><a href="#evidence">Starting evidence</a><a href="#worked-through">How I worked through it</a><a href="#question">Reading continuity: the product question</a><a href="#reader-journey">Reader journey and target segment</a><a href="#alternatives">Alternatives considered</a><a href="#ecosystem">Who this affects</a><a href="#tensions">The trade-offs</a><a href="#decision-trail">Decision trail</a><a href="#decision">The proposed first release</a><a href="#measurement">How we would measure it</a><a href="#confirm">What we need to confirm before building</a><a href="#plan">The six-week plan</a><a href="#results">When results arrive</a><a href="#method">AI use and authorship</a>
       </aside>
     </div>
   </main>
@@ -330,12 +330,15 @@ const closeMenu=()=>{
   menuToggle.setAttribute('aria-expanded','false');
 };
 document.addEventListener('keydown',event=>{
-  if(event.key==='Escape') closeMenu();
+  if(event.key==='Escape'&&document.body.classList.contains('nav-open')){closeMenu();menuToggle.focus();}
+});
+document.addEventListener('click',event=>{
+  if(document.body.classList.contains('nav-open')&&!event.target.closest('.sidebar,.menu-toggle')) closeMenu();
 });
 const links=document.querySelectorAll('.sidebar a,.toc a');
 document.querySelectorAll('.sidebar a').forEach(link=>link.addEventListener('click',closeMenu));
-const targets=[...links].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.sidebar a,.toc a').forEach(a=>a.classList.toggle('current',a.getAttribute('href')==='#'+entry.target.id));}})},{rootMargin:'-15% 0px -75% 0px'});
+const targets=[...new Set([...links].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean))];
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(a=>a.classList.toggle('current',a.getAttribute('href')==='#'+entry.target.id));}})},{rootMargin:'-15% 0px -75% 0px'});
 targets.forEach(t=>observer.observe(t));
 </script>
 </body></html>
