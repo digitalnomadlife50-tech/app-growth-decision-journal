@@ -2,48 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A product decision journal documenting the evidence, trade-offs, assumptions, and decisions behind a proposed Wikipedia app growth feature.">
-<title>Continue reading — Wikipedia App Growth decision journal</title>
+<meta name="description" content="Thread is a proposed internal codename for an independent decision journal about Reading continuity in the Wikipedia apps. Continue reading is the proposed user-facing feature.">
+<title>Thread: Reading continuity in the Wikipedia apps</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="skip" href="#article">Jump to content</a>
 <header class="mw-header">
-  <button class="menu-toggle" aria-label="Toggle contents" onclick="document.body.classList.toggle('nav-open')">☰</button>
-  <a class="brand" href="#top" aria-label="Wikipedia App Growth decision journal">
-    <span class="brand-mark" aria-hidden="true">W</span>
-    <span class="brand-name">Wikipedia</span>
-    <span class="brand-sub">APP GROWTH · PRODUCT DECISION JOURNAL</span>
+  <button class="menu-toggle" type="button" aria-label="Toggle contents" aria-controls="page-navigation" aria-expanded="false">Menu</button>
+  <a class="brand" href="#top" aria-label="Thread, a proposed internal codename for this journal">
+    <span class="brand-mark" aria-hidden="true">T</span>
+    <span class="brand-name">Thread</span>
+    <span class="brand-sub">READING CONTINUITY · PRODUCT DECISION JOURNAL</span>
   </a>
   <div class="header-tools"><span class="project-label">TAKE-HOME EXERCISE</span><a href="#method">About this journal</a></div>
 </header>
 <div class="page-shell" id="top">
-  <aside class="sidebar" aria-label="Page navigation">
+  <aside class="sidebar" id="page-navigation" aria-label="Page navigation">
     <div class="side-label">CONTENTS</div>
     <a href="#brief">The assignment</a>
     <a href="#evidence">Starting evidence</a>
-    <a href="#question">The product question</a>
+    <a href="#question">Reading continuity: the product question</a>
     <a href="#reader-journey">Reader journey and segment</a>
     <a href="#alternatives">Alternatives considered</a>
     <a href="#ecosystem">Ecosystem and leverage</a>
     <a href="#tensions">Trade-offs</a>
-    <a href="#decision">First-release decision</a>
+    <a href="#decision">Proposed first-release scope</a>
     <a href="#measurement">Measurement</a>
     <a href="#open-questions">What remains open</a>
-    <a href="#benchmark">Interview-framework review</a>
+    <a href="#decision-trail">Decision trail</a>
     <a href="#method">Working method</a>
     <div class="sidebar-note"><b>Reading note</b><p>This is a synthesized decision record, not a transcript of stakeholder conversations.</p></div>
   </aside>
   <main class="article" id="article">
-    <div class="article-kicker">WIKIPEDIA APPS / APP GROWTH</div>
-    <h1>Continue reading</h1>
-    <div class="subtitle">A product decision journal</div>
+    <div class="article-kicker">WIKIPEDIA APPS / READING CONTINUITY</div>
+    <h1>Thread</h1>
+    <div class="subtitle">Reading continuity in the Wikipedia apps</div>
     <div class="page-tabs"><span class="active">Article</span><a href="#method">Discussion</a><span class="tab-spacer"></span><span>Read</span><span>View source</span></div>
     <div class="article-layout">
       <div class="article-body">
         <p class="lead">Help people pick up where curiosity left off.</p>
-        <p>This journal documents the reasoning behind a six-week proposal for a “Continue reading” experience in the Wikipedia apps. It describes the evidence, assumptions, trade-offs, and decisions that shaped the proposed first release.</p>
-        <p class="notice"><b>Scope of this document:</b> The assignment scenario and its numbers are fictional. Facts below come from the supplied brief. Interpretations, hypotheses, and proposed decisions are identified as such. This is a companion to the requested interview deliverables, not a replacement for them. The requested deliverables retain the labels used in the brief: A. Scope and measurement plan; B. Phabricator epic and two user story tasks; C. Slack update to the Sr. Director; and D. Public reply to the volunteer editor.</p>
+        <p>This journal uses Thread as a proposed internal codename for this independent decision record. It is not an approved internal project, a Wikimedia product, or an official Wikimedia initiative. The product concept is Reading continuity in the Wikipedia apps. The user-facing feature name remains “Continue reading.” This journal documents the evidence, assumptions, trade-offs, and proposed decisions behind a six-week first release.</p>
+        <p class="notice"><b>Scope of this document:</b> The assignment scenario and its figures are fictional. The supplied brief is the source for the facts and metrics below. The interpretation, hypothesis, and proposed decisions are mine. This journal is a companion to, not a substitute for, the four interview deliverables: (A) a scope and measurement plan, (B) a Phabricator epic and two user story tasks, (C) a Slack update to the Senior Director, and (D) a public reply to the volunteer editor.</p>
 
         <h2 id="brief">The assignment <a class="edit" href="#brief">[edit]</a></h2>
         <p>The quarterly goal is to increase the share of new app installs that return within seven days. Leadership is interested in a “Continue reading” feature, with a first version expected within six weeks.</p>
@@ -51,7 +51,7 @@
 
         <h2 id="evidence">Starting evidence <a class="edit" href="#evidence">[edit]</a></h2>
         <p>The supplied 30-day snapshot:</p>
-        <table class="wikitable">
+        <table class="wikitable" tabindex="0">
           <thead><tr><th>Metric</th><th>Android</th><th>iOS</th></tr></thead>
           <tbody>
             <tr><td>New installs returning within 7 days</td><td>22%</td><td>28%</td></tr>
@@ -62,13 +62,13 @@
         <p>Support separately reports that the app loses a reader’s place when backgrounded. An app review complains about notification volume. A volunteer editor asks whether the app will store what people read and where that data goes.</p>
         <p class="small-note">The analyst warns that the Android drop in new installs last month is partly due to a tracking change. Direct month-over-month comparison is therefore not appropriate.</p>
 
-        <h2 id="question">The product question <a class="edit" href="#question">[edit]</a></h2>
+        <h2 id="question">Reading continuity: the product question <a class="edit" href="#question">[edit]</a></h2>
         <blockquote>Is the problem that readers need another reason to open Wikipedia, or that the app makes it unnecessarily difficult to continue something they already started?</blockquote>
-        <p>We chose to test continuity before adding another engagement mechanic.</p>
+        <p>I recommend testing Reading continuity before adding another engagement mechanic. That judgment starts with the reported loss of reading position, not with an assumption that every interrupted reader wants a reminder.</p>
 
         <h2 id="reader-journey">Reader journey and target segment <a class="edit" href="#reader-journey">[edit]</a></h2>
-        <p>The proposed audience is not every new reader, and it is not everyone whose session ends mid-article. It is <b>new app readers who interrupt an article and would benefit from being able to return to it</b>. The brief does not tell us how many readers fit that description or how many want to resume. That is the central user hypothesis to test, not a fact to assume.</p>
-        <table class="wikitable">
+        <p>The proposed audience is not every new reader, and it is not everyone whose session ends mid-article. It is <b>new app readers who interrupt an article and would benefit from being able to return to it</b>. The brief does not establish how many readers fit that description or how many want to resume. That is the central user hypothesis to test, not a fact to assume.</p>
+        <table class="wikitable" tabindex="0">
           <thead><tr><th>Journey stage</th><th>Reader's likely job</th><th>Potential friction</th></tr></thead>
           <tbody>
             <tr><td>Discover</td><td>Find an answer or follow a question</td><td>Not the focus of this intervention</td></tr>
@@ -81,8 +81,8 @@
         <p>The intervention targets the handoff between interruption and return. It does not try to solve discovery, create a reason to read longer, or treat leaving as a negative action. This is a narrower and more testable problem than “increase engagement.”</p>
 
         <h2 id="alternatives">Alternatives considered <a class="edit" href="#alternatives">[edit]</a></h2>
-        <p>Before selecting the first release, we compared three distinct approaches against the quarterly outcome, evidence in the brief, delivery constraints, and user trust.</p>
-        <table class="wikitable">
+        <p>I compared three distinct approaches against the quarterly outcome, evidence in the brief, delivery constraints, and reader trust before selecting a first-release recommendation.</p>
+        <table class="wikitable" tabindex="0">
           <thead><tr><th>Approach</th><th>Potential value</th><th>Why it was not the first-release choice</th></tr></thead>
           <tbody>
             <tr><td><b>1. Restore the last position automatically</b></td><td>Fixes the reported loss of place when a reader backgrounds an article</td><td>Useful for immediate recovery, but alone it does not make an older interrupted article easy to find after the reader has left or opened other content</td></tr>
@@ -90,12 +90,12 @@
             <tr><td><b>3. Send a reminder notification</b></td><td>Could bring a reader back after they leave the app</td><td>Intent to return is unknown, notification fatigue is already reported, and Android limits non-essential notifications to one per user per week</td></tr>
           </tbody>
         </table>
-        <p><b>Decision:</b> combine local position persistence with a small Home entry point. The two parts form one complete return path: remember where the reader stopped, then make that article findable when they come back. This is more directly connected to the observed friction than a reminder, fits the six-week constraint better than sync, and preserves the reader's choice about whether to resume.</p>
+        <p><b>Recommendation:</b> I recommend pairing local position persistence with a small Home entry point. Together they form one return path: remember where the reader stopped, then make that article findable when they come back. This addresses the reported friction more directly than a reminder, fits the six-week constraint better than sync, and preserves the reader's choice about whether to resume. The brief does not establish that this approach will improve seven-day return, so I would test the recommendation rather than treat it as a proven solution.</p>
         <p class="small-note">The alternatives are product approaches, not experimentally validated solutions. The brief provides no comparative user research or feature-effect data. The choice is a reasoned starting point to test.</p>
 
         <h2 id="ecosystem">Ecosystem and leverage <a class="edit" href="#ecosystem">[edit]</a></h2>
-        <p>The feature sits inside a wider system. The decision should create value for readers without creating hidden costs for the people who maintain, support, or trust Wikipedia.</p>
-        <table class="wikitable">
+        <p>The feature sits inside a wider system. I would judge the recommendation by whether it creates value for readers without hidden costs for people who maintain, support, or trust Wikipedia.</p>
+        <table class="wikitable" tabindex="0">
           <thead><tr><th>Participant</th><th>What matters to them</th><th>Product implication</th></tr></thead>
           <tbody>
             <tr><td>Readers</td><td>Useful continuity, control, and a clear way to move on</td><td>Resume, dismiss, and clear history. Do not infer intent from an interruption</td></tr>
@@ -106,49 +106,50 @@
             <tr><td>App Growth</td><td>More new readers returning within seven days</td><td>Test the outcome with a holdout and keep platform results separate</td></tr>
           </tbody>
         </table>
-        <p>The highest-leverage point the team can influence within six weeks is the return path inside the app. It is grounded in a support-reported usability issue, can be built without account infrastructure, and can be tested against the stated team outcome. This does not establish that continuity is the largest possible growth opportunity across Wikipedia. It establishes that it is a plausible, actionable opportunity within this brief.</p>
+        <p>Within the six-week constraint, I see the in-app return path as the most actionable opportunity. It responds to a support-reported usability issue, avoids account infrastructure, and can be tested against the stated outcome. This does not establish that Reading continuity is the largest possible growth opportunity across Wikipedia. It is a plausible opportunity that fits the evidence and constraints in this brief.</p>
 
         <h2 id="tensions">The trade-offs <a class="edit" href="#tensions">[edit]</a></h2>
         <h3>1. Incomplete does not mean unfinished</h3>
         <p>A session ending partway through an article is an observable event, not proof that the reader wanted to return. Some people got what they needed. Others were interrupted. The feature should help the second group without treating every exit as a failure.</p>
-        <div class="decision"><b>Product implication</b><p>Use interruption as an eligibility signal, not as evidence of intent or a reason to send a prompt.</p></div>
+        <div class="decision"><b>My recommendation</b><p>Use interruption as an eligibility signal, not as evidence of intent or a reason to send a prompt.</p></div>
 
         <h3>2. Retention versus trust</h3>
         <p>Reading history can make continuity useful, but it can also feel like surveillance. The volunteer editor’s question makes this a product requirement, not a footer disclaimer.</p>
-        <div class="decision"><b>Product implication</b><p>Propose local-only storage, no account requirement, no article-level analytics, and visible controls to dismiss or clear. Verify the full data path before release.</p></div>
+        <div class="decision"><b>My proposed data boundary</b><p>Keep saved positions on-device and require no account. Send no article title, article identifier, or saved position to analytics or servers. Use only the minimum event data needed to evaluate the experiment and feature reliability, then verify logs, crash reporting, storage, and deletion with Engineering and privacy before release.</p></div>
 
         <h3>3. Cross-device convenience versus six-week feasibility</h3>
         <p>iOS local persistence is described as easy. Sync requires account work and at least a quarter. A cross-device experience may be more complete, but it does not fit the stated release window.</p>
-        <div class="decision"><b>Product implication</b><p>Start local-first. Treat sync as a later hypothesis to revisit if readers value continuity beyond one device.</p></div>
+        <div class="decision"><b>My recommendation</b><p>Start local-first. Treat sync as a later hypothesis to revisit if readers value continuity beyond one device.</p></div>
 
         <h3>4. More prompts versus notification fatigue</h3>
         <p>Push opt-in is higher on Android than iOS, but that does not establish that notifications are the right intervention. The app review explicitly complains about too many notifications, and Android has a one-per-week cap for non-essential notifications.</p>
-        <div class="decision"><b>Product implication</b><p>Use an in-product return path first. Do not spend the notification budget to solve a problem that may be addressed in the app.</p></div>
+        <div class="decision"><b>My recommendation</b><p>Use an in-product return path first. Do not spend the notification budget to solve a problem that may be addressed in the app.</p></div>
 
         <h3>5. Marketing visibility versus product focus</h3>
         <p>A reading-streak card could be campaign-friendly, but it introduces a social engagement mechanic and may increase pressure to collect or expose reading behavior.</p>
-        <div class="decision"><b>Product implication</b><p>Decline it for the first release and offer a discovery-led campaign using existing sharing capabilities.</p></div>
+        <div class="decision"><b>My recommendation</b><p>Exclude it from the first release and offer a discovery-led campaign using existing sharing capabilities.</p></div>
 
-        <h2 id="decision">The first-release decision <a class="edit" href="#decision">[edit]</a></h2>
-        <p><b>Save interrupted reading positions on-device. Surface up to three recent articles on Home. Let readers resume, dismiss, or clear their history.</b></p>
-        <table class="wikitable">
+        <h2 id="decision">Proposed first-release scope <a class="edit" href="#decision">[edit]</a></h2>
+        <p><b>Recommendation:</b> I recommend saving interrupted reading positions on-device, surfacing up to three recent articles on Home, and letting readers resume, dismiss, or clear their history.</p>
+        <p class="small-note">The three-article limit is a compact-surface starting point, not a research-backed optimum. Validate findability and the limit in design review.</p>
+        <table class="wikitable" tabindex="0">
           <thead><tr><th>Included in the first release</th><th>Deferred</th></tr></thead>
-          <tbody><tr><td><ul><li>Local position persistence</li><li>Continue reading on Home</li><li>Resume at saved position</li><li>Dismiss one article</li><li>Clear all reading history</li><li>Remove completed articles</li><li>Privacy-safe diagnostic events</li></ul></td><td><ul><li>Cross-device sync</li><li>Push notifications</li><li>Reading streaks or social cards</li><li>Personalized recommendations</li><li>AI summaries or extra prompts</li></ul></td></tr></tbody>
+          <tbody><tr><td><ul><li>Local position persistence</li><li>Continue reading on Home</li><li>Resume at saved position</li><li>Dismiss one article</li><li>Clear all reading history</li><li>Remove completed articles</li><li>Minimal experiment and reliability events, with no article title, identifier, or saved position</li></ul></td><td><ul><li>Cross-device sync</li><li>Push notifications</li><li>Reading streaks or social cards</li><li>Personalized recommendations</li><li>AI summaries or extra prompts</li></ul></td></tr></tbody>
         </table>
         <p class="principle">Help people pick up their curiosity where they left it. Do not turn curiosity into a retention mechanic.</p>
 
-        <h2 id="measurement">How we would know <a class="edit" href="#measurement">[edit]</a></h2>
-        <p><b>Primary outcome:</b> the existing share of new app installs that return within seven days. Preserve the established event and denominator definition. Randomize eligible new installs 50/50 to treatment and holdout, analyze intention-to-treat, and report Android and iOS separately.</p>
-        <p><b>Proposed decision threshold:</b> at least +2 percentage points absolute lift versus holdout on each platform. This is a decision threshold for the exercise, not a forecast. The analyst validates power, minimum detectable effect, sample size, and duration.</p>
+        <h2 id="measurement">How I would evaluate the proposal <a class="edit" href="#measurement">[edit]</a></h2>
+        <p><b>Primary outcome:</b> the existing share of new app installs that return within seven days. I would preserve the established event and denominator definition, randomize eligible new installs 50/50 to treatment and holdout, analyze intention-to-treat, and report Android and iOS separately.</p>
+        <p><b>Proposed decision threshold:</b> at least +2 percentage points absolute lift versus holdout on each platform. This is a decision threshold for the exercise, not a forecast. Validate power, minimum detectable effect, sample size, and duration with an analyst before interpreting the result.</p>
         <p><b>Guardrails:</b> app stability, article-load success, restoration success, uninstalls, app reviews, support contacts, and privacy complaints. Feature adoption is diagnostic, not the outcome.</p>
-        <div class="notice"><b>Measurement caution:</b> Do not compare Android directly with the previous month. The brief says the Android drop is partly explained by a tracking change. If the six-week point arrives before the experiment is adequately powered, report the result as inconclusive and continue measurement.</div>
+        <div class="notice"><b>Decision rule and measurement caution:</b> Do not compare Android directly with the previous month. The brief attributes part of the Android decline to a tracking change. If a powered test clears the proposed threshold on each platform and guardrails remain acceptable, I would recommend continued investment. If it does not, revisit the user problem and the return path rather than adding prompts by default. If the six-week point arrives before the experiment is adequately powered, report the result as inconclusive and continue measurement. Pause earlier if privacy, stability, or restoration guardrails materially worsen.</div>
 
         <h2 id="open-questions">What remains open <a class="edit" href="#open-questions">[edit]</a></h2>
-        <p>The proposal is specific about user-visible behavior and provisional about implementation details that belong with the team. These are first validation points after kickoff, not reasons to hold the interview submission.</p>
-        <table class="wikitable">
+        <p>The proposal specifies user-visible behavior and leaves implementation details for Engineering to validate after kickoff. These are first validation points, not reasons to hold the interview submission.</p>
+        <table class="wikitable" tabindex="0">
           <thead><tr><th>Status</th><th>Question</th><th>Next step</th></tr></thead>
           <tbody>
-            <tr><td><span class="status decided">Decided for the first release</span></td><td>Local-first, no account required</td><td>Intended design keeps positions on-device and excludes article-level data from analytics or servers.</td></tr>
+            <tr><td><span class="status recommended">Recommended for first release</span></td><td>Local-first, no account required</td><td>Proposed design keeps positions on-device and excludes article-level data from analytics or servers.</td></tr>
             <tr><td><span class="status validate">Validate Week 1</span></td><td>Storage, retention, deletion</td><td>Verify storage, backups, logging, crash reporting, and deletion with Engineering and privacy. Agree on a local retention/expiry policy.</td></tr>
             <tr><td><span class="status proposed">Engineering proposal</span></td><td>Save cadence and restoration anchor</td><td>A five-minute maximum progress-loss window is a starting requirement. Confirm feasibility, anchor strategy, and fallback for changed content.</td></tr>
             <tr><td><span class="status validate">Analyst validation</span></td><td>Metric and experiment power</td><td>Confirm event quality, denominator, MDE, sample size, and duration.</td></tr>
@@ -156,54 +157,29 @@
           </tbody>
         </table>
 
-        <h2 id="benchmark">Review against product interview frameworks <a class="edit" href="#benchmark">[edit]</a></h2>
-        <p>We used the supplied Product Sense and Analytical Thinking guides as an additional review layer after building the response to the actual take-home. They are useful diagnostic frameworks, but they are not the assignment itself. The exercise explicitly asks for focused work within three hours, so the goal was to close meaningful reasoning gaps without turning the submission into a full product-strategy interview answer.</p>
-        <h3>Product Sense review</h3>
-        <table class="wikitable">
-          <thead><tr><th>Dimension</th><th>Assessment</th><th>What the review surfaced</th></tr></thead>
-          <tbody>
-            <tr><td>Problem and motivation</td><td><span class="status decided">Strong</span></td><td>Clear continuity problem and a principle that protects reader agency. We made the connection to Wikipedia's knowledge mission more explicit through the reader's journey.</td></tr>
-            <tr><td>Segmentation</td><td><span class="status validate">Improved</span></td><td>The initial answer named interrupted readers but did not explain who among them mattered. The journal now distinguishes readers who want to resume from those who have finished what they needed.</td></tr>
-            <tr><td>User journey and pain point</td><td><span class="status validate">Improved</span></td><td>The return journey is now explicit, with the main friction located between leaving an article and finding the right place again.</td></tr>
-            <tr><td>Solution exploration</td><td><span class="status validate">Improved</span></td><td>We documented automatic position restore, a Home return path, and notifications before explaining why the first two belong together in the first release.</td></tr>
-            <tr><td>Prioritization and first release</td><td><span class="status decided">Strong</span></td><td>The selected scope fits the six-week window and avoids account work, notification fatigue, and unrelated engagement mechanics.</td></tr>
-            <tr><td>Risks and mission fit</td><td><span class="status decided">Strong</span></td><td>Privacy, trust, and reader control are part of the feature definition. Full technical data pathways remain to be verified.</td></tr>
-          </tbody>
-        </table>
-        <h3>Analytical Thinking review</h3>
-        <table class="wikitable">
-          <thead><tr><th>Dimension</th><th>Assessment</th><th>What the review surfaced</th></tr></thead>
-          <tbody>
-            <tr><td>Ecosystem mapping</td><td><span class="status validate">Improved</span></td><td>Readers, community, Support, Engineering, Design, Marketing, and App Growth now have explicit interests and product implications.</td></tr>
-            <tr><td>North Star and guardrails</td><td><span class="status decided">Strong</span></td><td>The assignment's seven-day return metric remains the primary outcome. Stability, restoration, trust, and support signals guard against optimizing return at any cost.</td></tr>
-            <tr><td>Opportunity selection</td><td><span class="status validate">Improved</span></td><td>We made the leverage argument explicit: observed friction, team influence, and a testable six-week intervention. We do not claim this is the largest opportunity in the full ecosystem.</td></tr>
-            <tr><td>Alternatives and trade-offs</td><td><span class="status decided">Strong</span></td><td>Three approaches are compared, with the crux of the decision stated rather than leaving the reader with a list of features.</td></tr>
-            <tr><td>Dependencies and horizon</td><td><span class="status decided">Strong</span></td><td>Sync, analytics quality, completion detection, privacy review, and design capacity are called out with an appropriate sequence.</td></tr>
-          </tbody>
-        </table>
-        <p><b>Remaining limitations:</b> the brief does not provide reader interviews, segment sizing, the proportion of interrupted readers who want to resume, experiment power, or evidence comparing the proposed approaches. We should not invent these. In a real first week, discovery and analytics validation would test them. For this take-home, the recommendation is a clear, bounded hypothesis with an explicit measurement plan.</p>
-        <h3>What changed in the work</h3>
+        <h2 id="decision-trail">Decision trail <a class="edit" href="#decision-trail">[edit]</a></h2>
+        <p>This section records how the recommendation follows from the brief. It is a decision record, not a claim that the proposed feature has been validated with readers or shipped by a team.</p>
         <ol>
-          <li>We kept the original outcome and did not replace the assignment metric with a new North Star.</li>
-          <li>We sharpened the target from “people with incomplete sessions” to readers who would benefit from resuming, while acknowledging that intent is unknown.</li>
-          <li>We mapped the return journey and identified the precise friction point.</li>
-          <li>We made the solution choice comparative, not feature-led.</li>
-          <li>We mapped stakeholder interests and tied the decision to the team's actual leverage and six-week horizon.</li>
-          <li>We kept the core submission concise and placed the fuller reasoning here, where it can be examined without burdening the requested deliverables.</li>
+          <li><b>Start with supplied signals.</b> The brief reports that 38% of iOS sessions and 41% of Android sessions end partway through an article. Support separately reports that the app can lose a reader's place when backgrounded. These signals describe behavior and friction, but do not show how many readers want to return.</li>
+          <li><b>Separate observation from interpretation.</b> I do not treat an incomplete session as evidence of unmet need by itself. The actionable problem in the brief is the reported loss of place and the effort required to find an interrupted article again.</li>
+          <li><b>Make a bounded hypothesis.</b> A local saved position plus a modest Home entry point may reduce that effort and contribute to the existing seven-day return goal without adding notifications or requiring an account.</li>
+          <li><b>Choose a first release that can test the hypothesis.</b> I recommend pairing on-device position persistence with a return path, then letting readers resume, dismiss, or clear saved items. I would defer sync and reminders because they add delivery or trust costs before intent is established.</li>
+          <li><b>Say what would change the recommendation.</b> I would revisit the problem and return path if a powered experiment misses the proposed threshold or discovery finds little unmet need among interrupted readers. If the privacy boundary or reliability guardrails cannot be met, I would narrow or stop the release. An underpowered six-week result is inconclusive, not proof of success or failure.</li>
         </ol>
+        <p class="small-note"><b>Evidence still missing:</b> reader interviews, segment size, intent to resume, comparative solution evidence, and experiment power were not supplied. I would validate these points in the first week. They remain open rather than being filled with invented findings.</p>
 
         <h2 id="method">Working method <a class="edit" href="#method">[edit]</a></h2>
         <ol>
-          <li>Start with the stated outcome, not the feature request.</li>
-          <li>Map the reader journey before choosing the intervention.</li>
-          <li>Separate supplied evidence from interpretation, assumptions, and hypotheses.</li>
-          <li>Compare distinct approaches, then make a clear choice against impact, feasibility, and trust.</li>
-          <li>Use constraints to narrow the first release, not to lower the quality bar.</li>
-          <li>Make privacy and reader control part of the experience definition.</li>
-          <li>Specify behavior clearly, then leave platform implementation to Engineering.</li>
-          <li>Define what result would change the next decision.</li>
+          <li>I start with the stated outcome, not the feature request.</li>
+          <li>I map the reader journey before choosing an intervention.</li>
+          <li>I separate supplied evidence from interpretation, assumptions, and hypotheses.</li>
+          <li>I compare distinct approaches, then choose against impact, feasibility, and trust.</li>
+          <li>I use constraints to narrow the first release, not lower the quality bar.</li>
+          <li>I make privacy and reader control part of the experience definition.</li>
+          <li>I specify behavior clearly and leave platform implementation to Engineering.</li>
+          <li>I define what result would change my next decision.</li>
         </ol>
-        <p><b>AI use disclosure:</b> ChatGPT was used to organize analysis, challenge assumptions, pressure-test trade-offs, and refine requirements. The final scope, prioritization, and recommendations were reviewed and selected by the candidate. This journal is a synthesized decision record, not a verbatim transcript or evidence of stakeholder conversations.</p>
+        <p><b>AI use disclosure:</b> ChatGPT helped organize analysis, challenge assumptions, pressure-test trade-offs, and refine requirements. I reviewed and selected the final scope, prioritization, and recommendations.</p>
 
         <div class="references">
           <h2>References</h2>
@@ -217,13 +193,26 @@
       </div>
       <aside class="toc" aria-label="Contents">
         <b>Contents</b>
-        <a href="#brief">The assignment</a><a href="#evidence">Starting evidence</a><a href="#question">The product question</a><a href="#reader-journey">Reader journey and segment</a><a href="#alternatives">Alternatives considered</a><a href="#ecosystem">Ecosystem and leverage</a><a href="#tensions">The trade-offs</a><a href="#decision">The first-release decision</a><a href="#measurement">How we would know</a><a href="#open-questions">What remains open</a><a href="#benchmark">Interview-framework review</a><a href="#method">Working method</a>
+        <a href="#brief">The assignment</a><a href="#evidence">Starting evidence</a><a href="#question">Reading continuity: the product question</a><a href="#reader-journey">Reader journey and segment</a><a href="#alternatives">Alternatives considered</a><a href="#ecosystem">Ecosystem and leverage</a><a href="#tensions">The trade-offs</a><a href="#decision">Proposed first-release scope</a><a href="#measurement">How I would evaluate the proposal</a><a href="#open-questions">What remains open</a><a href="#decision-trail">Decision trail</a><a href="#method">Working method</a>
       </aside>
     </div>
   </main>
 </div>
 <script>
+const menuToggle=document.querySelector('.menu-toggle');
+menuToggle.addEventListener('click',()=>{
+  const isOpen=document.body.classList.toggle('nav-open');
+  menuToggle.setAttribute('aria-expanded',String(isOpen));
+});
+const closeMenu=()=>{
+  document.body.classList.remove('nav-open');
+  menuToggle.setAttribute('aria-expanded','false');
+};
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape') closeMenu();
+});
 const links=document.querySelectorAll('.sidebar a,.toc a');
+document.querySelectorAll('.sidebar a').forEach(link=>link.addEventListener('click',closeMenu));
 const targets=[...links].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
 const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.sidebar a,.toc a').forEach(a=>a.classList.toggle('current',a.getAttribute('href')==='#'+entry.target.id));}})},{rootMargin:'-15% 0px -75% 0px'});
 targets.forEach(t=>observer.observe(t));
