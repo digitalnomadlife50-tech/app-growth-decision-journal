@@ -35,13 +35,15 @@
     <a href="#plan">The six-week plan</a>
     <a href="#results">When results arrive</a>
     <a href="#method">AI use and authorship</a>
+    <div class="side-label side-optional">Optional reading</div>
+    <a href="#future-of-apps">A broader perspective: The future of apps</a>
     <div class="sidebar-note"><b>Reading note</b><p>This record synthesizes the assignment and my reasoning. It does not document stakeholder conversations.</p></div>
   </aside>
   <main class="article" id="article">
     <div class="article-kicker">WIKIPEDIA APPS / READING CONTINUITY</div>
     <h1>Thread</h1>
     <div class="subtitle">Reading continuity in the Wikipedia apps</div>
-    <div class="page-tabs"><span class="active">Article</span><a href="#method">Discussion</a><span class="tab-spacer"></span><span>Read</span><span>View source</span></div>
+    <div class="page-tabs"><span class="active">Article</span><a href="#method">Discussion</a><span class="tab-spacer"></span><span class="tab-tip-wrap"><span class="tab-current" tabindex="0" aria-current="page" aria-describedby="tip-read">Read</span><span class="tab-tip" role="tooltip" id="tip-read">The reader-friendly view of this decision journal.</span></span><span class="tab-tip-wrap"><a href="https://github.com/digitalnomadlife50-tech/app-growth-decision-journal" target="_blank" rel="noopener noreferrer" aria-describedby="tip-source">View source<span class="sr-only"> (opens the GitHub repository in a new tab)</span></a><span class="tab-tip" role="tooltip" id="tip-source">Explore the underlying page implementation and source code.</span></span></div>
     <div class="article-layout">
       <div class="article-body">
         <p class="lead">A first-person walkthrough of the evidence, questions, and trade-offs behind a proposed Continue reading feature, and how I would take it from kickoff to release and results.</p>
@@ -295,12 +297,26 @@
           <li><b>Reviewing the results and deciding what to do next.</b></li>
         </ol>
         <p>When the results are ready, I would review Android and iOS separately, comparing readers who were offered Continue reading with readers who were not. I would check the other measures for signs that the feature caused problems, then share the findings and a recommendation with the Senior Director using the <a href="#two-steps">decision rules</a> set out earlier.</p>
-        <p>If the experiment has not included enough readers to tell whether the feature made a difference, I would report the result as inconclusive and explain how much more measurement is needed. An early number that looks good, or bad, is not yet a result.</p>
+        <p>If the experiment has not included enough readers to tell whether the feature made a difference, I would report the result as inconclusive and explain how much more measurement is needed. <mark>An early number that looks good, or bad, is not yet a result.</mark></p>
         <p>Taken together, the narrow first release follows from the specific reader problem I chose to investigate: helping someone get back to an article, and to their place in it, after an interruption. Saving the position on the device and showing a small, dismissible Continue reading section give that reader a way back while keeping control in their hands. The early checks on Android, privacy, design, and measurement decide whether the release goes ahead as described. The technical release shows whether it works, and the experiment shows whether it helps.</p>
 
         <h2 id="method">AI use and authorship <a class="edit" href="#method">[edit]</a></h2>
         <p>I tried to keep the reasoning easy to inspect: start with the outcome, separate what was observed from what I concluded, compare options against constraints and trust, and state what would change my mind. The walkthrough carries the narrative, while the tables keep the requirements and open questions available for review.</p>
         <p>I used ChatGPT as an analysis and writing aid. It helped organize the supplied brief, challenge assumptions, pressure-test trade-offs, and refine requirements and prose. It did not provide user research, stakeholder conversations, engineering confirmation, approvals, or experimental results. I reviewed the metrics against the assignment and selected the final problem framing, scope, privacy limits, measurement plan, and recommendations.</p>
+
+        <section class="optional-section" aria-labelledby="future-of-apps">
+        <h2 id="future-of-apps">A broader perspective: The future of apps <a class="edit" href="#future-of-apps">[edit]</a></h2>
+        <p class="notice"><b>Optional reading:</b> This is a personal product perspective. It sits outside the fictional assignment and does not change any of the recommendations above. It is not Wikimedia strategy or a finding from the exercise. Where I describe how things may change, I am stating my own hypotheses, not established facts.</p>
+        <p>Working through Continue reading made me think about a larger question. The feature assumes that the app is a place people come back to. That is true for many readers today, and I expect it to stay true for a long time. I am less sure the app will remain the main way most people reach Wikipedia.</p>
+        <p>My working hypothesis is that apps may increasingly become capabilities people use wherever they happen to be, rather than destinations they have to open. Someone checking a fact in the middle of a conversation, a search, or a document does not necessarily want to switch to another app to do it. They want the answer, and some confidence that it is right, in the place they already are.</p>
+        <p>If that is right, more of a product’s value would sit beneath the screen: in its content and data, in the services and connections (often called APIs) that let other software use them, in the trust people place in it, and in its ability to help someone finish what they set out to do. The interface would still matter, but it would be one expression of the product rather than the whole of it.</p>
+        <p>AI assistants make this more concrete. People already ask assistants questions they once typed into a search box, and phones and other apps increasingly show answers directly. In that kind of world, people may reach a product through an assistant, through their phone’s own features, or through an experience built into something else. I do not think traditional apps disappear. I think they may become one of several ways in, and perhaps the one people choose when they want depth, control, or a place of their own.</p>
+        <p>How people discover products may shift as well. App stores have shaped how people find apps for well over a decade, and they still do. Alongside them, assistants and built-in experiences may become a meaningful way people first encounter a product, often without installing anything. I do not know how large that shift will be, and I would want evidence before planning around it. It seems worth watching, because the seven-day return goal in this assignment measures only one path: someone who installs the app and comes back to it.</p>
+        <p>For Wikipedia, I find it useful to think about three levels at once. The first is the direct reader experience: the website and apps where people read, explore, and sometimes edit. The second is Wikipedia as a trusted source of knowledge for AI-assisted experiences, where an assistant draws on its articles to answer someone’s question. The third is Wikipedia as infrastructure that other products build on, through its openly licensed content and structured data. All three already exist to some degree. What may change is how much each one matters and how they relate to each other.</p>
+        <p>This is where I see the central tension. Broader distribution creates real opportunities: more people can benefit from reliable knowledge, in more places, with less effort. But Wikipedia depends on more than being read. It depends on a direct relationship with readers, on trust that comes from people being able to see where information comes from, on the curiosity that leads someone from one article to the next, and on the participation that turns some readers into editors and donors. An answer delivered somewhere else, without credit or a way back, may help the reader in the moment while weakening the things that keep Wikipedia working.</p>
+        <p>That is part of why a feature as modest as Continue reading interests me. It is a small bet on the direct experience: when someone does come to the app, the app should respect what they were doing and make it easy to carry on. I hold the larger ideas here loosely. They are hypotheses about direction, not predictions, and the right response would depend on evidence that Wikipedia’s own teams and communities are far better placed to gather than I am.</p>
+        <blockquote class="closing-thought"><mark>The opportunity is not simply to get more people to open the Wikipedia app. It is to make Wikipedia more useful wherever people encounter knowledge, while giving them compelling reasons to return to an experience they can call their own.</mark></blockquote>
+        </section>
 
         <div class="references">
           <h2>References</h2>
@@ -314,7 +330,7 @@
       </div>
       <aside class="toc" aria-label="Contents">
         <b>Contents</b>
-        <a href="#brief">The assignment</a><a href="#evidence">Starting evidence</a><a href="#worked-through">How I worked through it</a><a href="#question">Reading continuity: the product question</a><a href="#reader-journey">Reader journey and target segment</a><a href="#alternatives">Alternatives considered</a><a href="#ecosystem">Who this affects</a><a href="#tensions">The trade-offs</a><a href="#decision-trail">Decision trail</a><a href="#decision">The proposed first release</a><a href="#measurement">How we would measure it</a><a href="#confirm">What we need to confirm before building</a><a href="#plan">The six-week plan</a><a href="#results">When results arrive</a><a href="#method">AI use and authorship</a>
+        <a href="#brief">The assignment</a><a href="#evidence">Starting evidence</a><a href="#worked-through">How I worked through it</a><a href="#question">Reading continuity: the product question</a><a href="#reader-journey">Reader journey and target segment</a><a href="#alternatives">Alternatives considered</a><a href="#ecosystem">Who this affects</a><a href="#tensions">The trade-offs</a><a href="#decision-trail">Decision trail</a><a href="#decision">The proposed first release</a><a href="#measurement">How we would measure it</a><a href="#confirm">What we need to confirm before building</a><a href="#plan">The six-week plan</a><a href="#results">When results arrive</a><a href="#method">AI use and authorship</a><span class="toc-optional">Optional reading</span><a href="#future-of-apps">A broader perspective: The future of apps</a>
       </aside>
     </div>
   </main>
@@ -329,11 +345,22 @@ const closeMenu=()=>{
   document.body.classList.remove('nav-open');
   menuToggle.setAttribute('aria-expanded','false');
 };
+const tipWraps=document.querySelectorAll('.tab-tip-wrap');
+tipWraps.forEach(wrap=>{
+  const reset=()=>wrap.classList.remove('tip-dismissed');
+  wrap.addEventListener('mouseleave',reset);
+  wrap.addEventListener('focusout',reset);
+});
+document.querySelector('.tab-current').addEventListener('click',event=>event.currentTarget.focus());
 document.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&document.body.classList.contains('nav-open')){closeMenu();menuToggle.focus();}
+  if(event.key!=='Escape') return;
+  tipWraps.forEach(wrap=>{if(wrap.matches(':hover,:focus-within')) wrap.classList.add('tip-dismissed');});
+  if(document.body.classList.contains('nav-open')){closeMenu();menuToggle.focus();}
 });
 document.addEventListener('click',event=>{
   if(document.body.classList.contains('nav-open')&&!event.target.closest('.sidebar,.menu-toggle')) closeMenu();
+  const focusedTip=document.activeElement&&document.activeElement.closest('.tab-tip-wrap');
+  if(focusedTip&&!event.target.closest('.tab-tip-wrap')) document.activeElement.blur();
 });
 const links=document.querySelectorAll('.sidebar a,.toc a');
 document.querySelectorAll('.sidebar a').forEach(link=>link.addEventListener('click',closeMenu));

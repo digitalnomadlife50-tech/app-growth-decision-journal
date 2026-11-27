@@ -23,7 +23,18 @@ a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline;color
 h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:32px;line-height:1.25;margin:0;color:#202122}
 .subtitle{font-family:Georgia,"Times New Roman",serif;font-size:16px;color:#54595d;margin-top:2px}
 .page-tabs{display:flex;gap:18px;align-items:center;border-bottom:1px solid #a2a9b1;margin-top:18px;height:42px;font-size:13px;color:#54595d}
-.page-tabs .active{height:42px;padding:10px 0;border-bottom:2px solid #202122;color:#202122;font-weight:600}.page-tabs a{color:#54595d}.tab-spacer{flex:1}
+.page-tabs .active,.page-tabs .tab-current{height:42px;padding:10px 0;border-bottom:2px solid #202122;color:#202122;font-weight:600}.page-tabs a{color:#54595d}.tab-spacer{flex:1}
+.page-tabs{position:relative;z-index:5}
+.tab-tip-wrap{position:relative;display:flex;align-items:center;height:42px}
+.tab-current{cursor:default}.page-tabs .tab-current:focus-visible,.page-tabs a:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.tab-tip{position:absolute;top:calc(100% + 6px);right:0;z-index:15;width:max-content;max-width:min(240px,80vw);background:#fff;border:1px solid #a2a9b1;box-shadow:0 2px 6px #0000001f;padding:6px 9px;font-size:12px;font-weight:400;line-height:1.45;color:#202122;visibility:hidden;opacity:0;transition:opacity .12s;pointer-events:none}
+.tab-tip-wrap:hover .tab-tip,.tab-tip-wrap:focus-within .tab-tip{visibility:visible;opacity:1}
+.tab-tip-wrap.tip-dismissed .tab-tip{visibility:hidden;opacity:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+mark{background:#fdf3c9;color:inherit;padding:1px 2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.closing-thought{margin-top:22px}
+.side-optional{border-bottom:0;border-top:1px solid #eaecf0;margin:14px 0 2px;padding-top:12px;padding-bottom:2px;font-weight:400;color:#72777d}
+.toc-optional{display:block;margin-top:9px;padding-top:8px;border-top:1px solid #eaecf0;font-size:11px;color:#72777d}
 .article-layout{display:grid;grid-template-columns:minmax(0,790px) 190px;gap:44px;padding-top:22px;align-items:start}
 .article-body{min-width:0;max-width:790px}
 .article-body p{margin:0 0 14px;max-width:76ch}
