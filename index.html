@@ -168,7 +168,7 @@
           <li>Does clearing history remove every saved position and the related information stored on the device?</li>
           <li>Do app stability and article loading stay healthy?</li>
           <li>Does the app keep to the proposed privacy limits in practice?</li>
-          <li>Do the usage events work as intended? These are the small records the app sends to analytics, such as “the Continue reading section was shown.”</li>
+          <li>Do the usage events work as intended? These are basic records the app creates when someone uses the feature, such as whether the Continue reading section appeared, whether someone resumed an article, or whether they dismissed an item. They record the action only. They must not contain article titles, article URLs, article identifiers, or saved reading positions.</li>
         </ul>
         <p>This step is a technical check. It is not the retention experiment, and its numbers would not tell us whether more readers came back. Engineering and Analytics would decide how many readers it includes and how long it runs. I have not assumed a size or a duration.</p>
         <p><b>Second, the retention experiment.</b> Once the technical checks pass, the experiment would begin with new installs. Each new install would be randomly placed in one of two equal groups. One group sees Continue reading and the other keeps the existing experience, which gives a fair comparison. A reader stays in the same group for the whole experiment, so nobody switches between the two experiences partway through. Everyone in the Continue reading group counts in that group whether or not they use the feature, which means the comparison measures the effect of offering it. Android and iOS results are reported separately.</p>
